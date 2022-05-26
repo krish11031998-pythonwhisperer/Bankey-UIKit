@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
         
-        window?.rootViewController = self.loginVC
-//        window?.rootViewController = OnboardingContainerViewController()
+        self.setWindowRootViewController(rootViewController: self.loginVC, animated: true)
+
         
         return true
     }
@@ -38,26 +38,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onboardingVC.delegate = self
         return onboardingVC
     }()
+    
+    private lazy var homeVC:DummyHomeViewController = {
+        let homeVC = DummyHomeViewController()
+        homeVC.delegate = self
+        return homeVC
+    }()
+    
+    private func setWindowRootViewController(rootViewController vc:UIViewController,animated:Bool){
+        guard let safeWindow = self.window else {return}
+        
+        safeWindow.rootViewController = vc
+        safeWindow.makeKeyAndVisible()
+        
+        if animated{
+            UIView.transition(with: safeWindow,
+                                  duration: 0.3,
+                                  options: .transitionCrossDissolve,
+                                  animations: nil,
+                                  completion: nil)
+        }
+    }
 }
 
 extension AppDelegate:LoginAndOnboardingViewControllerDelegate{
     func didLogin() {
         if !self.userLoggedIn{
             self.userLoggedIn.toggle()
-            self.window?.rootViewController = self.onboardingVC
+            self.setWindowRootViewController(rootViewController: self.onboardingVC, animated: true)
         }
     }
     
     func didLogout() {
         if self.userLoggedIn{
             self.userLoggedIn.toggle()
-            self.window?.rootViewController = LoginViewController()
+            self.setWindowRootViewController(rootViewController: self.loginVC, animated: true)
         }
     }
     
     func didFinishOnboarding() {
         if !self.userFinishedOnboarding{
             self.userFinishedOnboarding.toggle()
+            self.setWindowRootViewController(rootViewController: self.homeVC, animated: true)
         }
     }
     

@@ -16,7 +16,7 @@ class OnboardingContainerViewController: UIViewController {
     private var prevButton:UIView? = nil
     private var pages = [UIViewController]()
     
-    public var delegate:LoginAndOnboardingViewControllerDelegate? = nil
+    public weak var delegate:LoginAndOnboardingViewControllerDelegate?
     
     private lazy var pageInfo:[(img:String,monologue:String)] = {
         return [
@@ -42,7 +42,7 @@ class OnboardingContainerViewController: UIViewController {
     private func pageBuilder(){
         for count in 0..<pageInfo.count{
             let eachPage = pageInfo[count]
-            let onBoardPage = OnboardingPageViewController(imgName: eachPage.img, monologue: eachPage.monologue, nextButton: count != pageInfo.count - 1, prevButton: count != 0)
+            let onBoardPage = OnboardingPageViewController(imgName: eachPage.img, monologue: eachPage.monologue, nextButton: count != pageInfo.count - 1, prevButton: count != 0,lastButton:  count == pageInfo.count - 1)
             onBoardPage.delegate = self
             pages.append(onBoardPage)
         }
@@ -56,7 +56,11 @@ class OnboardingContainerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let closeButton:CustomButton = CustomButton(buttonTitle: "Close")
+    private lazy var closeButton:CustomButton = {
+        let button = CustomButton(buttonTitle: "Close")
+        button.delegate = self
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +129,10 @@ extension OnboardingContainerViewController:UIPageViewControllerDataSource{
                 self.currentPage = self.pages[index - 1]
                 return self.pages[index - 1]
             case .after:
-                guard let index = self.pages.firstIndex(of: vc), index + 1 < self.pages.count else {return nil}
+                guard let index = self.pages.firstIndex(of: vc), index + 1 < self.pages.count else {
+                    self.delegate?.didFinishOnboarding()
+                    return nil 
+                }
                 self.currentPage = self.pages[index + 1]
                 return self.pages[index + 1]
         }
@@ -153,5 +160,12 @@ extension OnboardingContainerViewController:OnboardingPageControllerDelegate{
     func handlePrevPageRequest() {
         guard let prevVC = self.getAdjacentPage(pageDirection: .before, viewController: self.currentPage) else {return}
         self.pageViewController.setViewControllers([prevVC], direction: .reverse, animated: true, completion: nil)
+    }
+}
+
+
+extension OnboardingContainerViewController:CustomButtonDelegate{
+    func handleButtonClick(id: String?) {
+        self.delegate?.didLogout()
     }
 }

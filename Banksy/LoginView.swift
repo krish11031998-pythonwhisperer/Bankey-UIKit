@@ -94,6 +94,17 @@ extension LoginView{
         
         self.divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
+    
+    
+    public func resetTextFields(){
+        if self.usernameTextField.text != ""{
+            self.usernameTextField.text = ""
+        }
+        
+        if self.passwordTextField.text != ""{
+            self.passwordTextField.text = ""
+        }
+    }
 }
 
 

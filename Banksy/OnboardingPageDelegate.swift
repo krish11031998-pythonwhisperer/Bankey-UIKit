@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol OnboardingPageControllerDelegate{
+protocol OnboardingPageControllerDelegate:AnyObject{
     func handleNextPageRequest()
     func handlePrevPageRequest()
 }

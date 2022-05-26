@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginAndOnboardingViewControllerDelegate{
+protocol LoginAndOnboardingViewControllerDelegate:AnyObject{
     func didLogin()
     func didLogout()
     func didFinishOnboarding()
@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
     
-    public var delegate:LoginAndOnboardingViewControllerDelegate? = nil
+    public weak var delegate:LoginAndOnboardingViewControllerDelegate? = nil
     
     private let WelcomeMessageView:UIStackView = {
         let stack = UIStackView()
@@ -75,12 +75,26 @@ class LoginViewController: UIViewController {
         self.setupView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if var config = self.signInButton.configuration,config.showsActivityIndicator{
+            config.showsActivityIndicator.toggle()
+        }
+    }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.layout()
     }
 
+    public func resetLoginViewController(){
+        if let _  = self.signInButton.configuration?.showsActivityIndicator{
+            self.signInButton.configuration?.showsActivityIndicator = false
+        }
+        
+        self.loginView.resetTextFields()
+    
+    }
 
 }
 
@@ -150,11 +164,17 @@ extension LoginViewController{
                 self.signInButton.configuration?.showsActivityIndicator = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
                     self.delegate?.didLogin()
+                    self.resetLoginViewController()
                 }
             }else{
-                self.configErrorView("Incorrect Credentials")
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                    self.configErrorView("Incorrect Credentials")
+                    self.resetLoginViewController()
+                }
+                
             }
         }
+        
     }
     
     func configErrorView(_ withMessage:String){

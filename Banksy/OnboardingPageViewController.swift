@@ -11,7 +11,8 @@ class OnboardingPageViewController: UIViewController {
 
     private var nextButton:CustomButton? = nil
     private var prevButton:CustomButton? = nil
-    public var delegate:OnboardingPageControllerDelegate?
+    var lastButton:Bool
+    public weak var delegate:OnboardingPageControllerDelegate?
     
     private let imageView:UIImageView = {
         let imageView = UIImageView()
@@ -35,8 +36,12 @@ class OnboardingPageViewController: UIViewController {
     }()
 
 
-    init(imgName:String,monologue:String,nextButton:Bool = false,prevButton:Bool = false){
+    init(imgName:String,monologue:String,nextButton:Bool = false,prevButton:Bool = false,lastButton:Bool = false){
+       
+        self.lastButton = lastButton
+        
         super.init(nibName: nil, bundle: nil)
+        
         if nextButton{
             self.nextButton = CustomButton(buttonTitle: "Next")
             self.nextButton?.delegate = self
@@ -45,6 +50,12 @@ class OnboardingPageViewController: UIViewController {
             self.prevButton = CustomButton(buttonTitle: "Prev")
             self.prevButton?.delegate = self
         }
+        
+        if lastButton{
+            self.nextButton = CustomButton(buttonTitle: "Done")
+            self.nextButton?.delegate = self
+        }
+        
         self.imageView.image = .init(named: imgName)
         self.monologueTextView.text = monologue
     }
@@ -130,7 +141,6 @@ class OnboardingPageViewController: UIViewController {
 
 extension OnboardingPageViewController:CustomButtonDelegate{
     func handleButtonClick(id: String?) {
-        print("")
         switch id{
             case self.nextButton?.accessibilityIdentifier:
                 self.onNextTapHandle()
