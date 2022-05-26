@@ -114,7 +114,7 @@ extension LoginViewController{
         
         //WelcomeSection
         NSLayoutConstraint.activate([
-            self.loginView.topAnchor.constraint(equalToSystemSpacingBelow: self.WelcomeMessageView.bottomAnchor, multiplier: 1.5),
+            self.loginView.topAnchor.constraint(equalToSystemSpacingBelow: self.WelcomeMessageView.bottomAnchor, multiplier: 3),
             self.WelcomeMessageView.leadingAnchor.constraint(equalToSystemSpacingAfter: self.view.leadingAnchor, multiplier: 5),
             self.view.trailingAnchor.constraint(equalToSystemSpacingAfter: self.WelcomeMessageView.trailingAnchor, multiplier: 5),
             self.WelcomeMessageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
@@ -141,6 +141,9 @@ extension LoginViewController{
             self.configErrorView("")
             if safeUsername == "test" && safePassword == "welcome"{
                 self.signInButton.configuration?.showsActivityIndicator = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                    self.navigationController?.pushViewController(OnboardingContainerViewController(), animated: true)
+                }
             }else{
                 self.configErrorView("Incorrect Credentials")
             }
