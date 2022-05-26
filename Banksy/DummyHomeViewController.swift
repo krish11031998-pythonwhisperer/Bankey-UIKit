@@ -14,8 +14,9 @@ class DummyHomeViewController: UIViewController {
     private let headingView:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome"
+        label.text = "Welcome, this is a Dummy Home View Controller"
         label.textColor = .black
+        label.numberOfLines = 0
         label.font = .systemFont(ofSize: 45, weight: .medium)
         
         return label
@@ -24,6 +25,7 @@ class DummyHomeViewController: UIViewController {
     
     private lazy var logOutButton:CustomButton = {
         let button = CustomButton(buttonTitle: "Log Out")
+        button.backgroundColor = .secondarySystemFill
         button.delegate = self
         
         return button
@@ -42,8 +44,6 @@ class DummyHomeViewController: UIViewController {
         stack.spacing = 20
         
         stack.translatesAutoresizingMaskIntoConstraints = false
-        
-        stack.backgroundColor = .red
         
         stack.addArrangedSubview(self.headingView)
         stack.addArrangedSubview(self.logOutButton)

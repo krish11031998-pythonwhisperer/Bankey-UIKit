@@ -11,16 +11,41 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var userLoggedIn:Bool = false
-    var userFinishedOnboarding:Bool = false
+//    var userLoggedIn:Bool = false
+//    var userFinishedOnboarding:Bool = false
+    
+    var userLoggedIn:Bool{
+        get{
+            return UserDefaults.standard.bool(forKey: "Bankey_userLoggedIn")
+        }
+        
+        set{
+            UserDefaults.standard.set(newValue, forKey: "Bankey_userLoggedIn")
+        }
+    }
 
+    
+    var userFinishedOnboarding:Bool{
+        get{
+            return UserDefaults.standard.bool(forKey: "Bankey_userFinishedOnboarding")
+        }
+        
+        set{
+            UserDefaults.standard.set(newValue, forKey: "Bankey_userFinishedOnboarding")
+        }
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
         
-        self.setWindowRootViewController(rootViewController: self.loginVC, animated: true)
+        if self.userLoggedIn{
+            self.setWindowRootViewController(rootViewController: self.homeVC, animated: true)
+        }else{
+            self.setWindowRootViewController(rootViewController: self.loginVC, animated: true)
+        }
+        
 
         
         return true
@@ -65,7 +90,12 @@ extension AppDelegate:LoginAndOnboardingViewControllerDelegate{
     func didLogin() {
         if !self.userLoggedIn{
             self.userLoggedIn.toggle()
-            self.setWindowRootViewController(rootViewController: self.onboardingVC, animated: true)
+            if self.userFinishedOnboarding{
+                self.setWindowRootViewController(rootViewController: self.homeVC, animated: true)
+            }else{
+                self.setWindowRootViewController(rootViewController: self.onboardingVC, animated: true)
+            }
+            
         }
     }
     
