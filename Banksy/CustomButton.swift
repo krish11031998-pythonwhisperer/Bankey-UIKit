@@ -49,7 +49,7 @@ class CustomButton:UIView{
     }()
     
     @objc func onButtonTapHandle(){
-        print("(DEBUG) Clicked on the \(self.button.titleLabel?.text ?? "no_button_name")!")
+        print("(DEBUG) Clicked on the \(self.buttonText.text ?? "no_button_name")!")
         self.delegate?.handleButtonClick(id:self.accessibilityIdentifier)
     }
     
