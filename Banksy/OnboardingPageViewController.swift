@@ -9,9 +9,10 @@ import UIKit
 
 class OnboardingPageViewController: UIViewController {
 
-    private var nextButton:UIView? = nil
-    private var prevButton:UIView? = nil
-
+    private var nextButton:CustomButton? = nil
+    private var prevButton:CustomButton? = nil
+    public var delegate:OnboardingPageControllerDelegate?
+    
     private let imageView:UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,12 +39,22 @@ class OnboardingPageViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         if nextButton{
             self.nextButton = CustomButton(buttonTitle: "Next")
+            self.nextButton?.delegate = self
         }
         if prevButton{
             self.prevButton = CustomButton(buttonTitle: "Prev")
+            self.prevButton?.delegate = self
         }
         self.imageView.image = .init(named: imgName)
         self.monologueTextView.text = monologue
+    }
+    
+    func onNextTapHandle(){
+        self.delegate?.handleNextPageRequest()
+    }
+    
+    func onPrevTapHandle(){
+        self.delegate?.handlePrevPageRequest()
     }
 
     required init?(coder: NSCoder) {
@@ -114,4 +125,19 @@ class OnboardingPageViewController: UIViewController {
 
 
 
+}
+
+
+extension OnboardingPageViewController:CustomButtonDelegate{
+    func handleButtonClick(id: String?) {
+        print("")
+        switch id{
+            case self.nextButton?.accessibilityIdentifier:
+                self.onNextTapHandle()
+            case self.prevButton?.accessibilityIdentifier:
+                self.onPrevTapHandle()
+            default:
+                print("(No Action)")
+        }
+    }
 }

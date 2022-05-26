@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol LoginAndOnboardingViewControllerDelegate{
+    func didLogin()
+    func didLogout()
+    func didFinishOnboarding()
+}
+
 class LoginViewController: UIViewController {
 
     
     private let loginView = LoginView()
+    
+    public var delegate:LoginAndOnboardingViewControllerDelegate? = nil
     
     private let WelcomeMessageView:UIStackView = {
         let stack = UIStackView()
@@ -18,7 +26,6 @@ class LoginViewController: UIViewController {
         stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.translatesAutoresizingMaskIntoConstraints = false
-//        stack.backgroundColor = .red
         
         let titleView = UILabel()
         titleView.text = "Bankey"
@@ -142,7 +149,7 @@ extension LoginViewController{
             if safeUsername == "test" && safePassword == "welcome"{
                 self.signInButton.configuration?.showsActivityIndicator = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-                    self.navigationController?.pushViewController(OnboardingContainerViewController(), animated: true)
+                    self.delegate?.didLogin()
                 }
             }else{
                 self.configErrorView("Incorrect Credentials")

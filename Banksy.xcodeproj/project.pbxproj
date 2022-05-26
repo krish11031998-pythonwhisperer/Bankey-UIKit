@@ -18,7 +18,8 @@
 		EF8B0725283FB30F0050E726 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */; };
 		EF8B0727283FB6940050E726 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */; };
 		EF8B072C283FF7D00050E726 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072B283FF7D00050E726 /* UIViewExtension.swift */; };
-		EF8B072E28400CF90050E726 /* StylizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072D28400CF90050E726 /* StylizedButton.swift */; };
+		EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072D28400CF90050E726 /* CustomButton.swift */; };
+		EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072F2840147C0050E726 /* OnboardingPageDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,8 @@
 		EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		EF8B072B283FF7D00050E726 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		EF8B072D28400CF90050E726 /* StylizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylizedButton.swift; sourceTree = "<group>"; };
+		EF8B072D28400CF90050E726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		EF8B072F2840147C0050E726 /* OnboardingPageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */,
 				EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */,
+				EF8B072F2840147C0050E726 /* OnboardingPageDelegate.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -163,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				EF8B072B283FF7D00050E726 /* UIViewExtension.swift */,
-				EF8B072D28400CF90050E726 /* StylizedButton.swift */,
+				EF8B072D28400CF90050E726 /* CustomButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -299,7 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF8B072C283FF7D00050E726 /* UIViewExtension.swift in Sources */,
-				EF8B072E28400CF90050E726 /* StylizedButton.swift in Sources */,
+				EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */,
+				EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */,
 				EF8B0722283F82910050E726 /* LoginView.swift in Sources */,
 				EF8B06F2283F7DE10050E726 /* LoginViewController.swift in Sources */,
 				EF8B0727283FB6940050E726 /* OnboardingPageViewController.swift in Sources */,

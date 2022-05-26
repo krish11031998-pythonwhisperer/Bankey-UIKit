@@ -14,35 +14,42 @@ class OnboardingContainerViewController: UIViewController {
     private var pageViewController:UIPageViewController
     private var nextButton:UIView? = nil
     private var prevButton:UIView? = nil
+    private var pages = [UIViewController]()
     
+    public var delegate:LoginAndOnboardingViewControllerDelegate? = nil
     
-    private var pages:[UIViewController] = {
-        var pages:[UIViewController] = [UIViewController]()
-        let pageInfo = [
+    private lazy var pageInfo:[(img:String,monologue:String)] = {
+        return [
             (img:"delorean",monologue:"Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in the 80s."),
             (img:"thumbs",monologue:"Move your money around the world quickly and securely."),
             (img:"world",monologue:"Learn more at www.bankey.com.")
         ]
-        
-        for count in 0..<pageInfo.count{
-            let eachPage = pageInfo[count]
-            
-            pages.append(OnboardingPageViewController(imgName: eachPage.img, monologue: eachPage.monologue, nextButton: count != pageInfo.count - 1, prevButton: count != 0))
-            
-        }
-        
-        return pages
     }()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         self.pageViewController = .init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        
-        self.currentPage = self.pages.first!
+
+        self.currentPage = UIViewController()
         
         self.pageViewController.view.backgroundColor = .purple
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.pageBuilder()
+    }
+    
+    private func pageBuilder(){
+        for count in 0..<pageInfo.count{
+            let eachPage = pageInfo[count]
+            let onBoardPage = OnboardingPageViewController(imgName: eachPage.img, monologue: eachPage.monologue, nextButton: count != pageInfo.count - 1, prevButton: count != 0)
+            onBoardPage.delegate = self
+            pages.append(onBoardPage)
+        }
+        
+        if let firstPage = self.pages.first{
+            self.currentPage = firstPage
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -132,4 +139,19 @@ extension OnboardingContainerViewController:UIPageViewControllerDataSource{
         return self.pages.firstIndex(of: self.currentPage) ?? 0
     }
     
+}
+
+//
+
+extension OnboardingContainerViewController:OnboardingPageControllerDelegate{
+    
+    func handleNextPageRequest() {
+        guard let nextVC = self.getAdjacentPage(pageDirection: .after, viewController: self.currentPage) else {return}
+        self.pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
+    }
+    
+    func handlePrevPageRequest() {
+        guard let prevVC = self.getAdjacentPage(pageDirection: .before, viewController: self.currentPage) else {return}
+        self.pageViewController.setViewControllers([prevVC], direction: .reverse, animated: true, completion: nil)
+    }
 }
