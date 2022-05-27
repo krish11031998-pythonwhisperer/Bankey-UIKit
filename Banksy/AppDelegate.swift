@@ -48,8 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.setWindowRootViewController(rootViewController: self.loginVC, animated: true)
         }
         
-
-        
         return true
     }
 

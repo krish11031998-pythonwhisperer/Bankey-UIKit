@@ -12,6 +12,11 @@ class MoneyViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.hideNavigationBar()
+        
+        self.setupStatusBar()
+        
         self.view.backgroundColor = .blue
     }
     

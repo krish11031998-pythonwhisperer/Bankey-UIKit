@@ -26,6 +26,8 @@
 		EF8B073F28409B8F0050E726 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B073E28409B8F0050E726 /* MoneyViewController.swift */; };
 		EF8B074228409BD70050E726 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B074128409BD70050E726 /* MoreViewController.swift */; };
 		EF8B07442840A05D0050E726 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */; };
+		EF8B074A2840B5390050E726 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B07492840B5390050E726 /* CustomLabel.swift */; };
+		EF8B074C2840B9240050E726 /* SummaryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		EF8B073E28409B8F0050E726 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
 		EF8B074128409BD70050E726 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		EF8B07492840B5390050E726 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 			children = (
 				EF8B0732284036F30050E726 /* DummyHomeViewController.swift */,
 				EF8B073B28409B080050E726 /* SummaryViewController.swift */,
+				EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				EF8B072B283FF7D00050E726 /* UIViewControllerExtension.swift */,
 				EF8B072D28400CF90050E726 /* CustomButton.swift */,
 				EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */,
+				EF8B07492840B5390050E726 /* CustomLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -344,6 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF8B072C283FF7D00050E726 /* UIViewControllerExtension.swift in Sources */,
+				EF8B074C2840B9240050E726 /* SummaryTableHeaderView.swift in Sources */,
+				EF8B074A2840B5390050E726 /* CustomLabel.swift in Sources */,
 				EF8B074228409BD70050E726 /* MoreViewController.swift in Sources */,
 				EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */,
 				EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */,
