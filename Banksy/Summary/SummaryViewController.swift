@@ -12,7 +12,9 @@ class SummaryViewController:UIViewController{
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
-        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500))
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
+        .init(type: .creditCard, description: "Visa Avion Card", value: Float.random(in: 300...1500)),
+        .init(type: .creditCard, description: "Student Mastercard", value: Float.random(in: 300...1500))
     ]
 
     private lazy var tableView:UITableView = {
@@ -68,7 +70,7 @@ class SummaryViewController:UIViewController{
 
 extension SummaryViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.txns.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

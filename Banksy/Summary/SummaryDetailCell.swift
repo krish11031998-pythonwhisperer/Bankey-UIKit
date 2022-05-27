@@ -25,6 +25,7 @@ class SummaryDetailCell:UITableViewCell{
             self.txnType.text = txn.type.rawValue
             self.indicatorView.backgroundColor = self.indicatorColor(type: txn.type)
             self.titleView.setText(txn.description)
+//            self.titleView.setText(Array(repeating: txn.description, count: 1).reduce("", {$0.isEmpty ? $1 : $0 +  " " + $1}))
             self.balanceValueView.setText("\(txn.value)")
             self.balanceTypeDescriptor.setText(self.balanceDescriptor(type: txn.type))
             
@@ -72,11 +73,7 @@ class SummaryDetailCell:UITableViewCell{
     
     // MARK: - Transaction Description
     
-    private var titleView:CustomLabel = {
-        let label =  CustomLabel(labelText: "", size: 17.5, weight: .medium,color: .black, numberOFLines: 2)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private var titleView:CustomLabel = CustomLabel(labelText: "", size: 17.5, weight: .medium,color: .black, numberOFLines: 3,addPadding: false)
     
     
     // MARK: - BalanceView
@@ -89,11 +86,12 @@ class SummaryDetailCell:UITableViewCell{
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        stackView.alignment = .center
         stackView.addArrangedSubview(self.balanceTypeDescriptor)
         stackView.addArrangedSubview(self.balanceValueView)
 
         NSLayoutConstraint.activate([
-            self.balanceValueView.heightAnchor.constraint(equalTo: self.balanceTypeDescriptor.heightAnchor,multiplier: 1.5)
+            self.balanceValueView.heightAnchor.constraint(equalTo:self.balanceTypeDescriptor.heightAnchor,multiplier: 1.5)
         ])
         
         return stackView
@@ -118,7 +116,7 @@ class SummaryDetailCell:UITableViewCell{
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.spacing = 0
-
+        
         stack.addArrangedSubview(self.balanceValueAndTypeView)
         stack.addArrangedSubview(self.button)
 
@@ -130,7 +128,6 @@ class SummaryDetailCell:UITableViewCell{
         self.addSubview(self.txnTypeView)
         self.addSubview(self.titleView)
         self.addSubview(self.balanceView)
-//        self.addSubview(self.balanceValueAndTypeView)
     }
     
     
@@ -156,18 +153,16 @@ extension SummaryDetailCell{
             self.txnType.widthAnchor.constraint(equalToConstant: self.frame.width * 0.2),
         ])
         
-        
         NSLayoutConstraint.activate([
-//            self.titleView.leadingAnchor.constraint(equalToSystemSpacingAfter: self.leadingAnchor, multiplier: 1),
-            self.titleView.topAnchor.constraint(equalToSystemSpacingBelow: self.txnTypeView.bottomAnchor, multiplier: 1),
+            self.titleView.leadingAnchor.constraint(equalToSystemSpacingAfter: self.leadingAnchor, multiplier: 1),
+            self.titleView.topAnchor.constraint(equalToSystemSpacingBelow: self.txnTypeView.bottomAnchor, multiplier: 2),
             self.titleView.widthAnchor.constraint(equalToConstant: self.frame.width * 0.5),
-            self.bottomAnchor.constraint(equalToSystemSpacingBelow: self.titleView.bottomAnchor, multiplier: 1)
         ])
         
         NSLayoutConstraint.activate([
             self.balanceView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.trailingAnchor.constraint(equalToSystemSpacingAfter: self.balanceView.trailingAnchor, multiplier: 1),
-            self.balanceView.heightAnchor.constraint(equalTo:self.titleView.heightAnchor,multiplier: 0.5)
+//            self.balanceView.heightAnchor.constraint(equalTo:self.titleView.heightAnchor,multiplier: 0.5)
         ])
     }
     
