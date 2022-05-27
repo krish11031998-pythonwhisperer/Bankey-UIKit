@@ -8,15 +8,24 @@
 import UIKit
 class SummaryViewController:UIViewController{
 
+    private let txns:[TransactionModel] = [
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500))
+    ]
 
     private lazy var tableView:UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.delegate = self
         table.dataSource = self
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
+        table.register(SummaryDetailCell.self, forCellReuseIdentifier: SummaryDetailCell.identifier)
+        table.separatorStyle = .none
+        
         let header = SummaryTableHeaderView(userName: "Krishna")
+        
+        table.backgroundColor = .systemTeal
         
         var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = UIScreen.main.bounds.width
@@ -63,8 +72,13 @@ extension SummaryViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SummaryDetailCell.identifier, for: indexPath) as? SummaryDetailCell else{
+            return UITableViewCell()
+        }
+        if indexPath.row < self.txns.count{
+            cell.updateView(txn: self.txns[indexPath.row])
+        }
+        cell.backgroundColor = .white
         return cell
     }
     

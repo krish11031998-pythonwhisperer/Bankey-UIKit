@@ -21,7 +21,7 @@ class CustomLabel:UIView{
         self.label.text = text
     }
     
-    init(labelText:String,size:CGFloat,weight:UIFont.Weight,numberOFLines:Int = 0,addPadding:Bool = true){
+    init(labelText:String,size:CGFloat,weight:UIFont.Weight,color:UIColor = .white,numberOFLines:Int = 0,addPadding:Bool = true){
         
         self.addPadding = addPadding
         
@@ -29,6 +29,7 @@ class CustomLabel:UIView{
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.label.text = labelText
+        self.label.textColor = color
         self.label.font = .systemFont(ofSize: size, weight: weight)
         self.label.numberOfLines = numberOFLines
         self.label.textAlignment = .left

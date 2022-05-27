@@ -28,6 +28,8 @@
 		EF8B07442840A05D0050E726 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */; };
 		EF8B074A2840B5390050E726 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B07492840B5390050E726 /* CustomLabel.swift */; };
 		EF8B074C2840B9240050E726 /* SummaryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */; };
+		EFAC30102840F1B300D0796A /* SummaryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC300F2840F1B300D0796A /* SummaryDetailCell.swift */; };
+		EFAC30132840F1E000D0796A /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC30122840F1E000D0796A /* TransactionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		EF8B07492840B5390050E726 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableHeaderView.swift; sourceTree = "<group>"; };
+		EFAC300F2840F1B300D0796A /* SummaryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailCell.swift; sourceTree = "<group>"; };
+		EFAC30122840F1E000D0796A /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		EF8B06EC283F7DE00050E726 /* Banksy */ = {
 			isa = PBXGroup;
 			children = (
+				EFAC30112840F1D300D0796A /* Model */,
 				EF8B074028409BC50050E726 /* More */,
 				EF8B073D28409B550050E726 /* Money */,
 				EF8B073828409A240050E726 /* Login */,
@@ -169,6 +174,7 @@
 				EF8B0732284036F30050E726 /* DummyHomeViewController.swift */,
 				EF8B073B28409B080050E726 /* SummaryViewController.swift */,
 				EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */,
+				EFAC300F2840F1B300D0796A /* SummaryDetailCell.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -217,6 +223,14 @@
 				EF8B074128409BD70050E726 /* MoreViewController.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		EFAC30112840F1D300D0796A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFAC30122840F1E000D0796A /* TransactionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,10 +363,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFAC30132840F1E000D0796A /* TransactionModel.swift in Sources */,
 				EF8B072C283FF7D00050E726 /* UIViewControllerExtension.swift in Sources */,
 				EF8B074C2840B9240050E726 /* SummaryTableHeaderView.swift in Sources */,
 				EF8B074A2840B5390050E726 /* CustomLabel.swift in Sources */,
 				EF8B074228409BD70050E726 /* MoreViewController.swift in Sources */,
+				EFAC30102840F1B300D0796A /* SummaryDetailCell.swift in Sources */,
 				EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */,
 				EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */,
 				EF8B073F28409B8F0050E726 /* MoneyViewController.swift in Sources */,
