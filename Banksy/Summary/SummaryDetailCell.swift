@@ -26,7 +26,10 @@ class SummaryDetailCell:UITableViewCell{
             self.indicatorView.backgroundColor = self.indicatorColor(type: txn.type)
             self.titleView.setText(txn.description)
 //            self.titleView.setText(Array(repeating: txn.description, count: 1).reduce("", {$0.isEmpty ? $1 : $0 +  " " + $1}))
-            self.balanceValueView.setText("\(txn.value)")
+            if let dollars = "\(txn.value)".split(separator: ".").first, let cents = "\(txn.value)".split(separator: ".").last{
+                self.balanceValueView.attributedText = self.makeFancyAttributedText(dollars: String(dollars), cents: String(cents))
+            }
+            
             self.balanceTypeDescriptor.setText(self.balanceDescriptor(type: txn.type))
             
         }
@@ -79,8 +82,45 @@ class SummaryDetailCell:UITableViewCell{
     // MARK: - BalanceView
     private lazy var balanceTypeDescriptor:CustomLabel = CustomLabel(labelText: "", size: 12, weight: .medium, color: .black, numberOFLines: 1, addPadding: false)
     
-    private lazy var balanceValueView:CustomLabel =  CustomLabel(labelText: "", size: 25, weight: .medium, color: .black, numberOFLines: 1, addPadding: false)
+    private lazy var balanceValueView:CustomLabel = CustomLabel(labelText: "", size: 25, weight: .medium, color: .black, numberOFLines: 1, addPadding: false)
     
+    
+//    private lazy var testStackView:UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.axis = .vertical
+////        stackView.alignment = .center
+//        stackView.distribution = .equalSpacing
+//
+//        stackView.backgroundColor = .black
+//
+//        let redView = UIView()
+//        redView.translatesAutoresizingMaskIntoConstraints = false
+//        redView.backgroundColor = .red
+//
+//        let blueView = UIView()
+//        blueView.translatesAutoresizingMaskIntoConstraints = false
+//        blueView.backgroundColor = .blue
+//
+//        let greenView = UIView()
+//        greenView.translatesAutoresizingMaskIntoConstraints = false
+//        greenView.backgroundColor = .green
+//
+//        stackView.addArrangedSubview(redView)
+//        stackView.addArrangedSubview(blueView)
+//        stackView.addArrangedSubview(greenView)
+//
+//        NSLayoutConstraint.activate([
+//            redView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.25),
+//            blueView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.5),
+//            greenView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.25)
+//        ])
+//
+//        return stackView
+//
+//    }()
+    
+    // MARK: - StackViewLayout
     private lazy var balanceValueAndTypeView:UIStackView = {
         let stackView = UIStackView()
         
@@ -115,10 +155,15 @@ class SummaryDetailCell:UITableViewCell{
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
-        stack.spacing = 0
+        stack.spacing = 5
         
         stack.addArrangedSubview(self.balanceValueAndTypeView)
         stack.addArrangedSubview(self.button)
+        
+        NSLayoutConstraint.activate([
+            self.balanceValueAndTypeView.widthAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 0.85),
+            self.button.widthAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 0.15,constant: -5)
+        ])
 
         return stack
 
@@ -128,6 +173,7 @@ class SummaryDetailCell:UITableViewCell{
         self.addSubview(self.txnTypeView)
         self.addSubview(self.titleView)
         self.addSubview(self.balanceView)
+//        self.addSubview(self.testStackView)
     }
     
     
@@ -152,18 +198,19 @@ extension SummaryDetailCell{
             self.txnTypeView.topAnchor.constraint(equalToSystemSpacingBelow: self.topAnchor, multiplier: 1),
             self.txnType.widthAnchor.constraint(equalToConstant: self.frame.width * 0.2),
         ])
-        
+
         NSLayoutConstraint.activate([
             self.titleView.leadingAnchor.constraint(equalToSystemSpacingAfter: self.leadingAnchor, multiplier: 1),
             self.titleView.topAnchor.constraint(equalToSystemSpacingBelow: self.txnTypeView.bottomAnchor, multiplier: 2),
             self.titleView.widthAnchor.constraint(equalToConstant: self.frame.width * 0.5),
         ])
-        
+
         NSLayoutConstraint.activate([
             self.balanceView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.trailingAnchor.constraint(equalToSystemSpacingAfter: self.balanceView.trailingAnchor, multiplier: 1),
 //            self.balanceView.heightAnchor.constraint(equalTo:self.titleView.heightAnchor,multiplier: 0.5)
         ])
+        
     }
     
     
@@ -190,4 +237,16 @@ extension SummaryDetailCell{
         }
     }
     
+    private func makeFancyAttributedText(dollars:String,cents:String) -> NSMutableAttributedString{
+        
+        let dollarSignAttribute:[NSAttributedString.Key:Any] = [.font:UIFont.preferredFont(forTextStyle: .callout),.baselineOffset:8]
+        let dollarAttribute:[NSAttributedString.Key:Any] = [.font:UIFont.preferredFont(forTextStyle: .title1)]
+        let centAttribute:[NSMutableAttributedString.Key:Any] = [.font:UIFont.preferredFont(forTextStyle: .footnote),.baselineOffset:8]
+        
+        let rootText:NSMutableAttributedString = .init(string: "$", attributes: dollarSignAttribute)
+        rootText.append(.init(string: dollars, attributes: dollarAttribute))
+        rootText.append(.init(string: cents, attributes: centAttribute))
+        
+        return rootText
+    }
 }
