@@ -7,6 +7,8 @@
 
 import UIKit
 
+let appColor: UIColor = .systemTeal
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -64,9 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return onboardingVC
     }()
     
-    private lazy var homeVC:DummyHomeViewController = {
-        let homeVC = DummyHomeViewController()
-        homeVC.delegate = self
+    private lazy var homeVC:MainViewController = {
+        let homeVC = MainViewController()
+        homeVC.loginDelegate = self
         return homeVC
     }()
     

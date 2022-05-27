@@ -17,10 +17,15 @@
 		EF8B0722283F82910050E726 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0721283F82910050E726 /* LoginView.swift */; };
 		EF8B0725283FB30F0050E726 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */; };
 		EF8B0727283FB6940050E726 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */; };
-		EF8B072C283FF7D00050E726 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072B283FF7D00050E726 /* UIViewExtension.swift */; };
+		EF8B072C283FF7D00050E726 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072B283FF7D00050E726 /* UIViewControllerExtension.swift */; };
 		EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072D28400CF90050E726 /* CustomButton.swift */; };
 		EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B072F2840147C0050E726 /* OnboardingPageDelegate.swift */; };
 		EF8B0733284036F30050E726 /* DummyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0732284036F30050E726 /* DummyHomeViewController.swift */; };
+		EF8B073A28409A7C0050E726 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B073928409A7C0050E726 /* MainViewController.swift */; };
+		EF8B073C28409B080050E726 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B073B28409B080050E726 /* SummaryViewController.swift */; };
+		EF8B073F28409B8F0050E726 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B073E28409B8F0050E726 /* MoneyViewController.swift */; };
+		EF8B074228409BD70050E726 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B074128409BD70050E726 /* MoreViewController.swift */; };
+		EF8B07442840A05D0050E726 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +60,15 @@
 		EF8B0721283F82910050E726 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
-		EF8B072B283FF7D00050E726 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EF8B072B283FF7D00050E726 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		EF8B072D28400CF90050E726 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		EF8B072F2840147C0050E726 /* OnboardingPageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageDelegate.swift; sourceTree = "<group>"; };
 		EF8B0732284036F30050E726 /* DummyHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyHomeViewController.swift; sourceTree = "<group>"; };
+		EF8B073928409A7C0050E726 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EF8B073B28409B080050E726 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		EF8B073E28409B8F0050E726 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
+		EF8B074128409BD70050E726 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +119,15 @@
 		EF8B06EC283F7DE00050E726 /* Banksy */ = {
 			isa = PBXGroup;
 			children = (
+				EF8B074028409BC50050E726 /* More */,
+				EF8B073D28409B550050E726 /* Money */,
 				EF8B073828409A240050E726 /* Login */,
 				EF8B073728409A000050E726 /* Onboarding */,
 				EF8B0736284099DD0050E726 /* Components */,
-				EF8B0735284099C40050E726 /* HomeViewController */,
+				EF8B0735284099C40050E726 /* Summary */,
 				EF8B06ED283F7DE10050E726 /* AppDelegate.swift */,
 				EF8B071D283F81C10050E726 /* Files */,
+				EF8B073928409A7C0050E726 /* MainViewController.swift */,
 			);
 			path = Banksy;
 			sourceTree = "<group>";
@@ -146,19 +159,21 @@
 			name = Files;
 			sourceTree = "<group>";
 		};
-		EF8B0735284099C40050E726 /* HomeViewController */ = {
+		EF8B0735284099C40050E726 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
 				EF8B0732284036F30050E726 /* DummyHomeViewController.swift */,
+				EF8B073B28409B080050E726 /* SummaryViewController.swift */,
 			);
-			path = HomeViewController;
+			path = Summary;
 			sourceTree = "<group>";
 		};
 		EF8B0736284099DD0050E726 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EF8B072B283FF7D00050E726 /* UIViewExtension.swift */,
+				EF8B072B283FF7D00050E726 /* UIViewControllerExtension.swift */,
 				EF8B072D28400CF90050E726 /* CustomButton.swift */,
+				EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -180,6 +195,22 @@
 				EF8B0721283F82910050E726 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		EF8B073D28409B550050E726 /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				EF8B073E28409B8F0050E726 /* MoneyViewController.swift */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		EF8B074028409BC50050E726 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				EF8B074128409BD70050E726 /* MoreViewController.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,15 +343,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF8B072C283FF7D00050E726 /* UIViewExtension.swift in Sources */,
+				EF8B072C283FF7D00050E726 /* UIViewControllerExtension.swift in Sources */,
+				EF8B074228409BD70050E726 /* MoreViewController.swift in Sources */,
 				EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */,
 				EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */,
+				EF8B073F28409B8F0050E726 /* MoneyViewController.swift in Sources */,
 				EF8B0722283F82910050E726 /* LoginView.swift in Sources */,
 				EF8B06F2283F7DE10050E726 /* LoginViewController.swift in Sources */,
 				EF8B0733284036F30050E726 /* DummyHomeViewController.swift in Sources */,
 				EF8B0727283FB6940050E726 /* OnboardingPageViewController.swift in Sources */,
+				EF8B07442840A05D0050E726 /* UINavigationControllerExtension.swift in Sources */,
+				EF8B073C28409B080050E726 /* SummaryViewController.swift in Sources */,
 				EF8B06EE283F7DE10050E726 /* AppDelegate.swift in Sources */,
 				EF8B0725283FB30F0050E726 /* OnboardingContainerViewController.swift in Sources */,
+				EF8B073A28409A7C0050E726 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
