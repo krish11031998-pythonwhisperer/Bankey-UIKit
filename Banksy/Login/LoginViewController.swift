@@ -18,13 +18,17 @@ class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
     
+    private var welcomeSectionLeadingAnchor:NSLayoutConstraint? = nil
+    private let leadingEdgeOnScreen:CGFloat = 8
+    private let leadingEdgeOffScreen:CGFloat = -1000
+    
     public weak var delegate:LoginOnboardingDelegate? = nil
     
+    // MARK: - Views
     private let WelcomeMessageView:UIStackView = {
         let stack = UIStackView()
-        stack.spacing = 16
+        stack.spacing = 5
         stack.axis = .vertical
-        stack.distribution = .fillProportionally
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         let titleView = UILabel()
@@ -69,22 +73,21 @@ class LoginViewController: UIViewController {
        
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setupView()
+        self.layout()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if var config = self.signInButton.configuration,config.showsActivityIndicator{
             config.showsActivityIndicator.toggle()
         }
-    }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.layout()
+        self.animate()
     }
 
     public func resetLoginViewController(){
@@ -94,6 +97,14 @@ class LoginViewController: UIViewController {
         
         self.loginView.resetTextFields()
     
+    }
+    
+    private func animate(){
+        let animation = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
+            self.welcomeSectionLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animation.startAnimation()
     }
 
 }
@@ -136,10 +147,11 @@ extension LoginViewController{
         //WelcomeSection
         NSLayoutConstraint.activate([
             self.loginView.topAnchor.constraint(equalToSystemSpacingBelow: self.WelcomeMessageView.bottomAnchor, multiplier: 3),
-            self.WelcomeMessageView.leadingAnchor.constraint(equalToSystemSpacingAfter: self.view.leadingAnchor, multiplier: 5),
-            self.view.trailingAnchor.constraint(equalToSystemSpacingAfter: self.WelcomeMessageView.trailingAnchor, multiplier: 5),
-            self.WelcomeMessageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            self.WelcomeMessageView.trailingAnchor.constraint(equalTo: self.loginView.trailingAnchor),
         ])
+        
+        self.welcomeSectionLeadingAnchor = self.WelcomeMessageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: self.leadingEdgeOffScreen)
+        self.welcomeSectionLeadingAnchor?.isActive = true
         
     }
     
