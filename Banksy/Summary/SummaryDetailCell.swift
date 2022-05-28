@@ -25,8 +25,8 @@ class SummaryDetailCell:UITableViewCell{
             self.txnType.text = txn.type.rawValue
             self.indicatorView.backgroundColor = self.indicatorColor(type: txn.type)
             self.titleView.setText(txn.description)
-            if let dollars = "\(txn.value)".split(separator: ".").first, let cents = "\(txn.value)".split(separator: ".").last{
-                self.balanceValueView.attributedText = self.makeFancyAttributedText(dollars: String(dollars), cents: String(cents))
+            if let stylizedText = CurrencyFormatter.shared.fancyAttributedString(txn.value){
+                self.balanceValueView.attributedText = stylizedText
             }
             
             self.balanceTypeDescriptor.setText(self.balanceDescriptor(type: txn.type))
@@ -110,7 +110,7 @@ class SummaryDetailCell:UITableViewCell{
         return button
     }()
     
-    @objc func buttonHandle(){
+    @objc func buttonHandle(_ sender:UIButton!){
         print("(DEBUG) Clicked on the Button Handle")
     }
     

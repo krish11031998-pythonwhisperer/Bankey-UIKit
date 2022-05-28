@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginAndOnboardingViewControllerDelegate:AnyObject{
+protocol LoginOnboardingDelegate:AnyObject{
     func didLogin()
     func didLogout()
     func didFinishOnboarding()
@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
     
-    public weak var delegate:LoginAndOnboardingViewControllerDelegate? = nil
+    public weak var delegate:LoginOnboardingDelegate? = nil
     
     private let WelcomeMessageView:UIStackView = {
         let stack = UIStackView()
@@ -143,7 +143,7 @@ extension LoginViewController{
         
     }
     
-    @objc func signInTapped(){
+    @objc func signInTapped(_ sender:UIButton!){
         print("Clicked on signIn!")
         let (username,password) = self.loginView.loginCredentialsCheck()
         

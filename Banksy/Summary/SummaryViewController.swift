@@ -10,11 +10,11 @@ class SummaryViewController:UIViewController{
 
     private let txns:[TransactionModel] = [
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 30000...1500000)),
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
-        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
-        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
-        .init(type: .creditCard, description: "Visa Avion Card", value: Float.random(in: 300...1500)),
-        .init(type: .creditCard, description: "Student Mastercard", value: Float.random(in: 300...1500))
+        .init(type: .banking, description: "Basic Saving", value: Float.random(in: 3000...15000)),
+        .init(type: .creditCard, description: "Visa Avion Card", value: Float.random(in: 3000...15000)),
+        .init(type: .creditCard, description: "Student Mastercard", value: Float.random(in: 3000...150000))
     ]
 
     private lazy var tableView:UITableView = {
@@ -40,12 +40,21 @@ class SummaryViewController:UIViewController{
         return table
     }()
     
+    private lazy var logoutButton:CustomButton = {
+        let button = CustomButton(buttonTitle: "Logout")
+        button.delegate = self
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.logoutButton)
         self.setupStatusBar()
         self.setupViews()
     }
+    
+   
     
     func setupViews(){
         self.view.addSubview(self.tableView)
@@ -66,6 +75,15 @@ class SummaryViewController:UIViewController{
         ])
         
     }
+}
+
+extension SummaryViewController:CustomButtonDelegate{
+    
+    func handleButtonClick(id: String?) {
+        self.logoutButton.updateLabelText("User has Logged Out")
+        NotificationCenter.default.post(name: .logout, object: nil )
+    }
+    
 }
 
 extension SummaryViewController:UITableViewDelegate,UITableViewDataSource{

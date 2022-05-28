@@ -13,8 +13,6 @@ let appColor: UIColor = .systemTeal
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-//    var userLoggedIn:Bool = false
-//    var userFinishedOnboarding:Bool = false
     
     var userLoggedIn:Bool{
         get{
@@ -44,9 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if self.userLoggedIn{
             self.setWindowRootViewController(rootViewController: self.homeVC, animated: true)
+            self.homeVC.setupStatusBar()
         }else{
             self.setWindowRootViewController(rootViewController: self.loginVC, animated: true)
         }
+        
+        self.registerNotificationCenter()
         
         return true
     }
@@ -86,7 +87,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate:LoginAndOnboardingViewControllerDelegate{
+// MARK: - NotificationCenter
+extension AppDelegate{
+    func registerNotificationCenter(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.logoutUser(_:)), name: .logout, object: nil)
+    }
+    
+    @objc func logoutUser(_ sender:UIButton!){
+        self.didLogout()
+    }
+}
+
+// MARK: - LoginAndOnboardingViewControllerDelegate
+extension AppDelegate:LoginOnboardingDelegate{
     func didLogin() {
         if !self.userLoggedIn{
             self.userLoggedIn.toggle()
@@ -95,7 +108,6 @@ extension AppDelegate:LoginAndOnboardingViewControllerDelegate{
             }else{
                 self.setWindowRootViewController(rootViewController: self.onboardingVC, animated: true)
             }
-            
         }
     }
     
@@ -112,7 +124,6 @@ extension AppDelegate:LoginAndOnboardingViewControllerDelegate{
             self.setWindowRootViewController(rootViewController: self.homeVC, animated: true)
         }
     }
-    
-    
+
 }
 

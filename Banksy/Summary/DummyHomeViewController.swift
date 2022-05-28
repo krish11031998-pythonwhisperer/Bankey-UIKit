@@ -9,7 +9,7 @@ import UIKit
 
 class DummyHomeViewController: UIViewController {
     
-    public weak var delegate:LoginAndOnboardingViewControllerDelegate? = nil
+    public weak var delegate:LoginOnboardingDelegate? = nil
     
     private let headingView:UILabel = {
         let label = UILabel()

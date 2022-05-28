@@ -21,7 +21,7 @@ class CustomLabel:UILabel{
         
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+        self.adjustsFontSizeToFitWidth = true
         self.text = labelText
         self.textColor = color
         self.font = .systemFont(ofSize: size, weight: weight)

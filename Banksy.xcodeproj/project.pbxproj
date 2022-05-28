@@ -11,9 +11,6 @@
 		EF8B06F2283F7DE10050E726 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B06F1283F7DE10050E726 /* LoginViewController.swift */; };
 		EF8B06F7283F7DE20050E726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8B06F6283F7DE20050E726 /* Assets.xcassets */; };
 		EF8B06FA283F7DE20050E726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF8B06F8283F7DE20050E726 /* LaunchScreen.storyboard */; };
-		EF8B0705283F7DE20050E726 /* BanksyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0704283F7DE20050E726 /* BanksyTests.swift */; };
-		EF8B070F283F7DE20050E726 /* BanksyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B070E283F7DE20050E726 /* BanksyUITests.swift */; };
-		EF8B0711283F7DE20050E726 /* BanksyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0710283F7DE20050E726 /* BanksyUITestsLaunchTests.swift */; };
 		EF8B0722283F82910050E726 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0721283F82910050E726 /* LoginView.swift */; };
 		EF8B0725283FB30F0050E726 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */; };
 		EF8B0727283FB6940050E726 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */; };
@@ -30,17 +27,17 @@
 		EF8B074C2840B9240050E726 /* SummaryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */; };
 		EFAC30102840F1B300D0796A /* SummaryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC300F2840F1B300D0796A /* SummaryDetailCell.swift */; };
 		EFAC30132840F1E000D0796A /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC30122840F1E000D0796A /* TransactionModel.swift */; };
+		EFAC301628417DA300D0796A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC301528417DA300D0796A /* StringExtension.swift */; };
+		EFAC301B284222A500D0796A /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC301A284222A500D0796A /* CurrencyFormatter.swift */; };
+		EFAC302328422B7000D0796A /* BanksyUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC302228422B7000D0796A /* BanksyUnitTests.swift */; };
+		EFAC302A28422B8F00D0796A /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC302928422B8F00D0796A /* CurrencyFormatterTests.swift */; };
+		EFAC302E28422F6D00D0796A /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC301A284222A500D0796A /* CurrencyFormatter.swift */; };
+		EFAC303028423B2200D0796A /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC302F28423B2200D0796A /* NotificationCenter.swift */; };
+		EFAC30322842432D00D0796A /* UITextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC30312842432D00D0796A /* UITextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EF8B0701283F7DE20050E726 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EF8B06E2283F7DE00050E726 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF8B06E9283F7DE00050E726;
-			remoteInfo = Banksy;
-		};
-		EF8B070B283F7DE20050E726 /* PBXContainerItemProxy */ = {
+		EFAC302428422B7000D0796A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EF8B06E2283F7DE00050E726 /* Project object */;
 			proxyType = 1;
@@ -56,11 +53,6 @@
 		EF8B06F6283F7DE20050E726 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF8B06F9283F7DE20050E726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF8B06FB283F7DE20050E726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF8B0700283F7DE20050E726 /* BanksyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BanksyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF8B0704283F7DE20050E726 /* BanksyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksyTests.swift; sourceTree = "<group>"; };
-		EF8B070A283F7DE20050E726 /* BanksyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BanksyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF8B070E283F7DE20050E726 /* BanksyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksyUITests.swift; sourceTree = "<group>"; };
-		EF8B0710283F7DE20050E726 /* BanksyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF8B0721283F82910050E726 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EF8B0724283FB30F0050E726 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		EF8B0726283FB6940050E726 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +69,13 @@
 		EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableHeaderView.swift; sourceTree = "<group>"; };
 		EFAC300F2840F1B300D0796A /* SummaryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailCell.swift; sourceTree = "<group>"; };
 		EFAC30122840F1E000D0796A /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		EFAC301528417DA300D0796A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EFAC301A284222A500D0796A /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
+		EFAC302028422B7000D0796A /* BanksyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BanksyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFAC302228422B7000D0796A /* BanksyUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksyUnitTests.swift; sourceTree = "<group>"; };
+		EFAC302928422B8F00D0796A /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyFormatterTests.swift; path = BanksyUnitTests/CurrencyFormatterTests.swift; sourceTree = SOURCE_ROOT; };
+		EFAC302F28423B2200D0796A /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		EFAC30312842432D00D0796A /* UITextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +86,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF8B06FD283F7DE20050E726 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF8B0707283F7DE20050E726 /* Frameworks */ = {
+		EFAC301D28422B7000D0796A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -108,8 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				EF8B06EC283F7DE00050E726 /* Banksy */,
-				EF8B0703283F7DE20050E726 /* BanksyTests */,
-				EF8B070D283F7DE20050E726 /* BanksyUITests */,
+				EFAC302128422B7000D0796A /* BanksyUnitTests */,
 				EF8B06EB283F7DE00050E726 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,8 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				EF8B06EA283F7DE00050E726 /* Banksy.app */,
-				EF8B0700283F7DE20050E726 /* BanksyTests.xctest */,
-				EF8B070A283F7DE20050E726 /* BanksyUITests.xctest */,
+				EFAC302028422B7000D0796A /* BanksyUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +117,8 @@
 		EF8B06EC283F7DE00050E726 /* Banksy */ = {
 			isa = PBXGroup;
 			children = (
+				EFAC30192842229400D0796A /* Utils */,
+				EFAC301428417D9400D0796A /* Extensions */,
 				EFAC30112840F1D300D0796A /* Model */,
 				EF8B074028409BC50050E726 /* More */,
 				EF8B073D28409B550050E726 /* Money */,
@@ -139,23 +131,6 @@
 				EF8B073928409A7C0050E726 /* MainViewController.swift */,
 			);
 			path = Banksy;
-			sourceTree = "<group>";
-		};
-		EF8B0703283F7DE20050E726 /* BanksyTests */ = {
-			isa = PBXGroup;
-			children = (
-				EF8B0704283F7DE20050E726 /* BanksyTests.swift */,
-			);
-			path = BanksyTests;
-			sourceTree = "<group>";
-		};
-		EF8B070D283F7DE20050E726 /* BanksyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EF8B070E283F7DE20050E726 /* BanksyUITests.swift */,
-				EF8B0710283F7DE20050E726 /* BanksyUITestsLaunchTests.swift */,
-			);
-			path = BanksyUITests;
 			sourceTree = "<group>";
 		};
 		EF8B071D283F81C10050E726 /* Files */ = {
@@ -182,9 +157,7 @@
 		EF8B0736284099DD0050E726 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EF8B072B283FF7D00050E726 /* UIViewControllerExtension.swift */,
 				EF8B072D28400CF90050E726 /* CustomButton.swift */,
-				EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */,
 				EF8B07492840B5390050E726 /* CustomLabel.swift */,
 			);
 			path = Components;
@@ -233,6 +206,35 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EFAC301428417D9400D0796A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF8B072B283FF7D00050E726 /* UIViewControllerExtension.swift */,
+				EF8B07432840A05D0050E726 /* UINavigationControllerExtension.swift */,
+				EFAC301528417DA300D0796A /* StringExtension.swift */,
+				EFAC302F28423B2200D0796A /* NotificationCenter.swift */,
+				EFAC30312842432D00D0796A /* UITextFieldView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFAC30192842229400D0796A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EFAC301A284222A500D0796A /* CurrencyFormatter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EFAC302128422B7000D0796A /* BanksyUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFAC302228422B7000D0796A /* BanksyUnitTests.swift */,
+				EFAC302928422B8F00D0796A /* CurrencyFormatterTests.swift */,
+			);
+			path = BanksyUnitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,41 +255,23 @@
 			productReference = EF8B06EA283F7DE00050E726 /* Banksy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EF8B06FF283F7DE20050E726 /* BanksyTests */ = {
+		EFAC301F28422B7000D0796A /* BanksyUnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EF8B0717283F7DE20050E726 /* Build configuration list for PBXNativeTarget "BanksyTests" */;
+			buildConfigurationList = EFAC302628422B7000D0796A /* Build configuration list for PBXNativeTarget "BanksyUnitTests" */;
 			buildPhases = (
-				EF8B06FC283F7DE20050E726 /* Sources */,
-				EF8B06FD283F7DE20050E726 /* Frameworks */,
-				EF8B06FE283F7DE20050E726 /* Resources */,
+				EFAC301C28422B7000D0796A /* Sources */,
+				EFAC301D28422B7000D0796A /* Frameworks */,
+				EFAC301E28422B7000D0796A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EF8B0702283F7DE20050E726 /* PBXTargetDependency */,
+				EFAC302528422B7000D0796A /* PBXTargetDependency */,
 			);
-			name = BanksyTests;
-			productName = BanksyTests;
-			productReference = EF8B0700283F7DE20050E726 /* BanksyTests.xctest */;
+			name = BanksyUnitTests;
+			productName = BanksyUnitTests;
+			productReference = EFAC302028422B7000D0796A /* BanksyUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EF8B0709283F7DE20050E726 /* BanksyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF8B071A283F7DE20050E726 /* Build configuration list for PBXNativeTarget "BanksyUITests" */;
-			buildPhases = (
-				EF8B0706283F7DE20050E726 /* Sources */,
-				EF8B0707283F7DE20050E726 /* Frameworks */,
-				EF8B0708283F7DE20050E726 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EF8B070C283F7DE20050E726 /* PBXTargetDependency */,
-			);
-			name = BanksyUITests;
-			productName = BanksyUITests;
-			productReference = EF8B070A283F7DE20050E726 /* BanksyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -302,11 +286,7 @@
 					EF8B06E9283F7DE00050E726 = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
-					EF8B06FF283F7DE20050E726 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = EF8B06E9283F7DE00050E726;
-					};
-					EF8B0709283F7DE20050E726 = {
+					EFAC301F28422B7000D0796A = {
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = EF8B06E9283F7DE00050E726;
 					};
@@ -326,8 +306,7 @@
 			projectRoot = "";
 			targets = (
 				EF8B06E9283F7DE00050E726 /* Banksy */,
-				EF8B06FF283F7DE20050E726 /* BanksyTests */,
-				EF8B0709283F7DE20050E726 /* BanksyUITests */,
+				EFAC301F28422B7000D0796A /* BanksyUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -342,14 +321,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF8B06FE283F7DE20050E726 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF8B0708283F7DE20050E726 /* Resources */ = {
+		EFAC301E28422B7000D0796A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFAC30322842432D00D0796A /* UITextFieldView.swift in Sources */,
 				EFAC30132840F1E000D0796A /* TransactionModel.swift in Sources */,
 				EF8B072C283FF7D00050E726 /* UIViewControllerExtension.swift in Sources */,
 				EF8B074C2840B9240050E726 /* SummaryTableHeaderView.swift in Sources */,
@@ -372,47 +345,38 @@
 				EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */,
 				EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */,
 				EF8B073F28409B8F0050E726 /* MoneyViewController.swift in Sources */,
+				EFAC301B284222A500D0796A /* CurrencyFormatter.swift in Sources */,
 				EF8B0722283F82910050E726 /* LoginView.swift in Sources */,
 				EF8B06F2283F7DE10050E726 /* LoginViewController.swift in Sources */,
 				EF8B0733284036F30050E726 /* DummyHomeViewController.swift in Sources */,
 				EF8B0727283FB6940050E726 /* OnboardingPageViewController.swift in Sources */,
 				EF8B07442840A05D0050E726 /* UINavigationControllerExtension.swift in Sources */,
 				EF8B073C28409B080050E726 /* SummaryViewController.swift in Sources */,
+				EFAC303028423B2200D0796A /* NotificationCenter.swift in Sources */,
 				EF8B06EE283F7DE10050E726 /* AppDelegate.swift in Sources */,
+				EFAC301628417DA300D0796A /* StringExtension.swift in Sources */,
 				EF8B0725283FB30F0050E726 /* OnboardingContainerViewController.swift in Sources */,
 				EF8B073A28409A7C0050E726 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF8B06FC283F7DE20050E726 /* Sources */ = {
+		EFAC301C28422B7000D0796A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF8B0705283F7DE20050E726 /* BanksyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF8B0706283F7DE20050E726 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF8B0711283F7DE20050E726 /* BanksyUITestsLaunchTests.swift in Sources */,
-				EF8B070F283F7DE20050E726 /* BanksyUITests.swift in Sources */,
+				EFAC302E28422F6D00D0796A /* CurrencyFormatter.swift in Sources */,
+				EFAC302328422B7000D0796A /* BanksyUnitTests.swift in Sources */,
+				EFAC302A28422B8F00D0796A /* CurrencyFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EF8B0702283F7DE20050E726 /* PBXTargetDependency */ = {
+		EFAC302528422B7000D0796A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EF8B06E9283F7DE00050E726 /* Banksy */;
-			targetProxy = EF8B0701283F7DE20050E726 /* PBXContainerItemProxy */;
-		};
-		EF8B070C283F7DE20050E726 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF8B06E9283F7DE00050E726 /* Banksy */;
-			targetProxy = EF8B070B283F7DE20050E726 /* PBXContainerItemProxy */;
+			targetProxy = EFAC302428422B7000D0796A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -596,18 +560,16 @@
 			};
 			name = Release;
 		};
-		EF8B0718283F7DE20050E726 /* Debug */ = {
+		EFAC302728422B7000D0796A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8T963ZW2EJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Krish.BanksyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Krish.BanksyUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -616,59 +578,21 @@
 			};
 			name = Debug;
 		};
-		EF8B0719283F7DE20050E726 /* Release */ = {
+		EFAC302828422B7000D0796A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8T963ZW2EJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Krish.BanksyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Krish.BanksyUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Banksy.app/Banksy";
-			};
-			name = Release;
-		};
-		EF8B071B283F7DE20050E726 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T963ZW2EJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Krish.BanksyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Banksy;
-			};
-			name = Debug;
-		};
-		EF8B071C283F7DE20050E726 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8T963ZW2EJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Krish.BanksyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Banksy;
 			};
 			name = Release;
 		};
@@ -693,20 +617,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EF8B0717283F7DE20050E726 /* Build configuration list for PBXNativeTarget "BanksyTests" */ = {
+		EFAC302628422B7000D0796A /* Build configuration list for PBXNativeTarget "BanksyUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EF8B0718283F7DE20050E726 /* Debug */,
-				EF8B0719283F7DE20050E726 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EF8B071A283F7DE20050E726 /* Build configuration list for PBXNativeTarget "BanksyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EF8B071B283F7DE20050E726 /* Debug */,
-				EF8B071C283F7DE20050E726 /* Release */,
+				EFAC302728422B7000D0796A /* Debug */,
+				EFAC302828422B7000D0796A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

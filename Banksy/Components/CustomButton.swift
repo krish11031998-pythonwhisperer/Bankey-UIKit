@@ -48,7 +48,11 @@ class CustomButton:UIView{
         return label
     }()
     
-    @objc func onButtonTapHandle(){
+    public func updateLabelText(_ text:String){
+        self.buttonText.text = text
+    }
+    
+    @objc func onButtonTapHandle(_ sender:UIButton!){
         print("(DEBUG) Clicked on the \(self.buttonText.text ?? "no_button_name")!")
         self.delegate?.handleButtonClick(id:self.accessibilityIdentifier)
     }

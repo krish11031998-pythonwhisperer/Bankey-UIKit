@@ -16,7 +16,7 @@ class OnboardingContainerViewController: UIViewController {
     private var prevButton:UIView? = nil
     private var pages = [UIViewController]()
     
-    public weak var delegate:LoginAndOnboardingViewControllerDelegate?
+    public weak var delegate:LoginOnboardingDelegate?
     
     private lazy var pageInfo:[(img:String,monologue:String)] = {
         return [

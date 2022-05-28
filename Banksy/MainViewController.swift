@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController:UITabBarController{
 
-    public weak var loginDelegate:LoginAndOnboardingViewControllerDelegate? = nil
+    public weak var loginDelegate:LoginOnboardingDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

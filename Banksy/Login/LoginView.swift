@@ -23,6 +23,7 @@ class LoginView: UIView {
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
         textField.delegate = self
+        textField.enablePasswordEye()
         
         return textField
     }()

@@ -44,7 +44,6 @@ class SummaryTableHeaderView:UIView{
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
-        stack.distribution = .fillEqually
         stack.spacing = 10
         
         stack.addArrangedSubview(self.userInfoStack)
@@ -54,6 +53,11 @@ class SummaryTableHeaderView:UIView{
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         stack.addArrangedSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            self.userInfoStack.widthAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 0.5),
+            imageView.widthAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 0.5,constant: -10)
+        ])
     
         return stack
     }()
