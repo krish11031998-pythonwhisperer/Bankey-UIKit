@@ -25,30 +25,25 @@ class LoginViewController: UIViewController {
     public weak var delegate:LoginOnboardingDelegate? = nil
     
     // MARK: - Views
-    private let WelcomeMessageView:UIStackView = {
+    private lazy var titleView:CustomLabel = .init(labelText: "Bankey", size: 25, weight: .medium, color: .black, numberOFLines: 1)
+    
+    private lazy var messageView:CustomLabel = .init(labelText: "You're premium source for all things banking!", size: 15, weight: .regular, color: .black, numberOFLines: 2)
+    
+    
+    private lazy var WelcomeMessageView:UIStackView = {
         let stack = UIStackView()
         stack.spacing = 5
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         
-        let titleView = UILabel()
-        titleView.text = "Bankey"
-        titleView.textAlignment = .center
-        titleView.font = .systemFont(ofSize: 25, weight: .medium)
-        titleView.textColor = .black
-        titleView.translatesAutoresizingMaskIntoConstraints = false
+        self.titleView.alpha = 0
+        self.titleView.textAlignment = .center
+        stack.addArrangedSubview(self.titleView)
         
-        stack.addArrangedSubview(titleView)
+        self.messageView.alpha = 0
+        self.messageView.textAlignment = .center
         
-        let messageView = UILabel()
-        messageView.text = "You're premium source for all things banking!"
-        messageView.textAlignment = .center
-        messageView.font = .systemFont(ofSize: 15, weight: .regular)
-        messageView.textColor = .black
-        messageView.numberOfLines = 2
-        messageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        stack.addArrangedSubview(messageView)
+        stack.addArrangedSubview(self.messageView)
         
         return stack
     }()
@@ -98,18 +93,31 @@ class LoginViewController: UIViewController {
         self.loginView.resetTextFields()
     
     }
-    
+
+}
+
+// MARK: - Animation
+extension LoginViewController{
     private func animate(){
-        let animation = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
+        let duration:TimeInterval = 1
+        let animation = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             self.welcomeSectionLeadingAnchor?.constant = self.leadingEdgeOnScreen
             self.view.layoutIfNeeded()
         }
         animation.startAnimation()
+        
+        let textAlphaAnimation = UIViewPropertyAnimator(duration: duration * 1.5, curve: .easeInOut) {
+            self.titleView.alpha = 1
+            self.messageView.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+        
+        textAlphaAnimation.startAnimation(afterDelay: duration * 0.25)
+        
     }
-
 }
 
-
+// MARK: - Miscellaneous
 extension LoginViewController{
     
     private func setupView(){
