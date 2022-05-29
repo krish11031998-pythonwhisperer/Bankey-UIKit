@@ -109,7 +109,7 @@ class SummaryViewController:UIViewController{
 extension SummaryViewController{
     
     func showModal(){
-        let cardAnimation = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+        let cardAnimation = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) {
             self.cardBottomAnchor?.constant = self.bottomOnScreen
             self.view.layoutIfNeeded()
         }
@@ -117,7 +117,7 @@ extension SummaryViewController{
     }
     
     func closeModal(){
-        let cardAnimation = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+        let cardAnimation = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) {
             self.cardBottomAnchor?.constant = self.bottomOffScreen
             self.view.layoutIfNeeded()
         }
