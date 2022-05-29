@@ -200,7 +200,10 @@ extension LoginViewController{
     func configErrorView(_ withMessage:String){
         self.errorMessage.text = withMessage
         self.errorMessage.isHidden = withMessage.isEmpty
-        self.shakeButton()
+        if !withMessage.isEmpty{
+            self.shakeButton()
+        }
+        
     }
     
     func shakeButton(){

@@ -35,6 +35,8 @@
 		EFAC303028423B2200D0796A /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC302F28423B2200D0796A /* NotificationCenter.swift */; };
 		EFAC30322842432D00D0796A /* UITextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC30312842432D00D0796A /* UITextFieldView.swift */; };
 		EFD13C16284398F7000E422E /* SummaryDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD13C15284398F7000E422E /* SummaryDetailModal.swift */; };
+		EFD13C182843B37C000E422E /* ShakeyBell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD13C172843B37C000E422E /* ShakeyBell.swift */; };
+		EFD13C1A2843BBC6000E422E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD13C192843BBC6000E422E /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		EFAC302F28423B2200D0796A /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		EFAC30312842432D00D0796A /* UITextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldView.swift; sourceTree = "<group>"; };
 		EFD13C15284398F7000E422E /* SummaryDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailModal.swift; sourceTree = "<group>"; };
+		EFD13C172843B37C000E422E /* ShakeyBell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBell.swift; sourceTree = "<group>"; };
+		EFD13C192843BBC6000E422E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			children = (
 				EF8B072D28400CF90050E726 /* CustomButton.swift */,
 				EF8B07492840B5390050E726 /* CustomLabel.swift */,
+				EFD13C172843B37C000E422E /* ShakeyBell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				EFAC301528417DA300D0796A /* StringExtension.swift */,
 				EFAC302F28423B2200D0796A /* NotificationCenter.swift */,
 				EFAC30312842432D00D0796A /* UITextFieldView.swift */,
+				EFD13C192843BBC6000E422E /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,9 +364,11 @@
 				EF8B073C28409B080050E726 /* SummaryViewController.swift in Sources */,
 				EFAC303028423B2200D0796A /* NotificationCenter.swift in Sources */,
 				EF8B06EE283F7DE10050E726 /* AppDelegate.swift in Sources */,
+				EFD13C1A2843BBC6000E422E /* UIViewExtension.swift in Sources */,
 				EFAC301628417DA300D0796A /* StringExtension.swift in Sources */,
 				EF8B0725283FB30F0050E726 /* OnboardingContainerViewController.swift in Sources */,
 				EF8B073A28409A7C0050E726 /* MainViewController.swift in Sources */,
+				EFD13C182843B37C000E422E /* ShakeyBell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

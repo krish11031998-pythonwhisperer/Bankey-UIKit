@@ -133,6 +133,9 @@ class SummaryDetailCell:UITableViewCell{
     }()
     
     private func setupViews(){
+        let clearView = UIView()
+        clearView.backgroundColor = .clear
+        self.selectedBackgroundView = clearView
         self.addSubview(self.txnTypeView)
         self.addSubview(self.titleView)
         self.addSubview(self.balanceView)
@@ -146,6 +149,16 @@ class SummaryDetailCell:UITableViewCell{
     override func layoutSubviews() {
         super.layoutSubviews()
         self.setupLayout()
+    }
+    
+    public func isSelectedUI(isSelected:Bool){
+        DispatchQueue.main.async {
+            self.txnType.textColor = isSelected ? .red : .black
+            self.balanceTypeDescriptor.textColor = isSelected ? .red : .black
+            self.txnType.textColor = isSelected ? .red : .black
+            self.titleView.textColor = isSelected ? .red : .black
+            self.balanceValueView.textColor = isSelected ? .red : .black
+        }
     }
     
 }

@@ -60,6 +60,7 @@ class SummaryViewController:UIViewController{
         super.viewDidLoad()
         self.view.backgroundColor = .red
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.logoutButton)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: ShakeyBell())
         self.setupStatusBar()
         self.setupViews()
         self.setupLayout()

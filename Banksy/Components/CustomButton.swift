@@ -15,10 +15,11 @@ class CustomButton:UIView{
 
     var delegate:CustomButtonDelegate? = nil
     
-    init(buttonTitle:String,buttonId:String? = nil){
+    init(buttonTitle:String,color:UIColor = .black,buttonId:String? = nil){
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.buttonText.text = buttonTitle
+        self.buttonText.textColor = color
         
         if let safeButtonId = buttonId{
             self.accessibilityIdentifier = safeButtonId
