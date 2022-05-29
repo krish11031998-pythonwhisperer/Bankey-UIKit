@@ -34,6 +34,7 @@
 		EFAC302E28422F6D00D0796A /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC301A284222A500D0796A /* CurrencyFormatter.swift */; };
 		EFAC303028423B2200D0796A /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC302F28423B2200D0796A /* NotificationCenter.swift */; };
 		EFAC30322842432D00D0796A /* UITextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAC30312842432D00D0796A /* UITextFieldView.swift */; };
+		EFD13C16284398F7000E422E /* SummaryDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD13C15284398F7000E422E /* SummaryDetailModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		EFAC302928422B8F00D0796A /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyFormatterTests.swift; path = BanksyUnitTests/CurrencyFormatterTests.swift; sourceTree = SOURCE_ROOT; };
 		EFAC302F28423B2200D0796A /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		EFAC30312842432D00D0796A /* UITextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldView.swift; sourceTree = "<group>"; };
+		EFD13C15284398F7000E422E /* SummaryDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				EF8B073B28409B080050E726 /* SummaryViewController.swift */,
 				EF8B074B2840B9240050E726 /* SummaryTableHeaderView.swift */,
 				EFAC300F2840F1B300D0796A /* SummaryDetailCell.swift */,
+				EFD13C15284398F7000E422E /* SummaryDetailModal.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				EF8B072E28400CF90050E726 /* CustomButton.swift in Sources */,
 				EF8B07302840147C0050E726 /* OnboardingPageDelegate.swift in Sources */,
 				EF8B073F28409B8F0050E726 /* MoneyViewController.swift in Sources */,
+				EFD13C16284398F7000E422E /* SummaryDetailModal.swift in Sources */,
 				EFAC301B284222A500D0796A /* CurrencyFormatter.swift in Sources */,
 				EF8B0722283F82910050E726 /* LoginView.swift in Sources */,
 				EF8B06F2283F7DE10050E726 /* LoginViewController.swift in Sources */,

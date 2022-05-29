@@ -8,6 +8,10 @@
 import UIKit
 class SummaryViewController:UIViewController{
 
+    private let bottomOffScreen:CGFloat = 1000
+    private let bottomOnScreen:CGFloat = 0
+    private var cardBottomAnchor:NSLayoutConstraint? = nil
+    
     private let txns:[TransactionModel] = [
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 300...1500)),
         .init(type: .banking, description: "Basic Saving", value: Float.random(in: 30000...1500000)),
@@ -17,6 +21,12 @@ class SummaryViewController:UIViewController{
         .init(type: .creditCard, description: "Student Mastercard", value: Float.random(in: 3000...150000))
     ]
 
+    private lazy var txnModal:SummaryDetailModal = {
+        let modal = SummaryDetailModal()
+        modal.delegate = self
+        return modal
+    }()
+    
     private lazy var tableView:UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.delegate = self
@@ -52,21 +62,24 @@ class SummaryViewController:UIViewController{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.logoutButton)
         self.setupStatusBar()
         self.setupViews()
+        self.setupLayout()
     }
     
    
     
     func setupViews(){
         self.view.addSubview(self.tableView)
+        self.view.addSubview(self.txnModal)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.setupLayout()
+        
     }
     
     func setupLayout(){
         
+        //TableView
         NSLayoutConstraint.activate([
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -74,14 +87,59 @@ class SummaryViewController:UIViewController{
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
+        //TxnModal
+        NSLayoutConstraint.activate([
+            self.txnModal.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            self.txnModal.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25),
+        ])
+        
+        self.cardBottomAnchor = self.txnModal.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.bottomOffScreen)
+        self.cardBottomAnchor?.isActive = true
+    }
+    
+    
+    func setupSummaryDetailModal(txn:TransactionModel){
+        self.txnModal.updateModal(txn: txn)
+//        self.txnModal.isHidden = false
+        self.showModal()
     }
 }
 
+//MARK: - SummaryDetailModal Animation
+extension SummaryViewController{
+    
+    func showModal(){
+        let cardAnimation = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+            self.cardBottomAnchor?.constant = self.bottomOnScreen
+            self.view.layoutIfNeeded()
+        }
+        cardAnimation.startAnimation()
+    }
+    
+    func closeModal(){
+        let cardAnimation = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+            self.cardBottomAnchor?.constant = self.bottomOffScreen
+            self.view.layoutIfNeeded()
+        }
+        cardAnimation.startAnimation()
+    }
+}
+
+//MARK: - CustomButton Delegate
 extension SummaryViewController:CustomButtonDelegate{
     
     func handleButtonClick(id: String?) {
-        self.logoutButton.updateLabelText("User has Logged Out")
-        NotificationCenter.default.post(name: .logout, object: nil )
+        guard let id = id else {
+            return
+        }
+        
+        if id == "modal_close"{
+            self.closeModal()
+        }else{
+            self.logoutButton.updateLabelText("User has Logged Out")
+            NotificationCenter.default.post(name: .logout, object: nil )
+        }
+        
     }
     
 }
@@ -111,4 +169,10 @@ extension SummaryViewController:UITableViewDelegate,UITableViewDataSource{
         return UIScreen.main.bounds.height * 0.2
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let summaryData = self.txns[indexPath.row]
+        self.setupSummaryDetailModal(txn: summaryData)
+    }
+    
 }
+
