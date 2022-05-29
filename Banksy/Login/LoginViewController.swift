@@ -200,6 +200,19 @@ extension LoginViewController{
     func configErrorView(_ withMessage:String){
         self.errorMessage.text = withMessage
         self.errorMessage.isHidden = withMessage.isEmpty
+        self.shakeButton()
+    }
+    
+    func shakeButton(){
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0,10,-10,10,0]
+        animation.keyTimes = [0,0.25,0.5,0.75,1]
+        animation.duration = 0.4
+        
+        animation.isAdditive = true
+        
+        self.signInButton.layer.add(animation, forKey: "shake")
     }
     
 }
