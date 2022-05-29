@@ -21,6 +21,17 @@ class ShakeyBell:UIView{
         return imageView
     }()
     
+    private let badge:UIButton = {
+        let button = UIButton()
+        button.setTitle("6", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.titleLabel?.textColor = .white
+        button.backgroundColor = .red
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +49,7 @@ class ShakeyBell:UIView{
     
     func setupViews(){
         self.addSubview(self.shakeyBellComponent)
+        self.addSubview(self.badge)
         self.shakeyBellComponent.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shakeyBellTapped)))
         self.shakeyBellComponent.isUserInteractionEnabled = true
     }
@@ -47,6 +59,13 @@ class ShakeyBell:UIView{
         self.shakeyBellComponent.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.shakeyBellComponent.widthAnchor.constraint(equalToConstant: 24).isActive = true
         self.shakeyBellComponent.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        self.badge.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        self.badge.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        self.badge.centerYAnchor.constraint(equalTo: self.shakeyBellComponent.centerYAnchor,constant: -7.5).isActive = true
+        self.badge.leadingAnchor.constraint(equalTo: self.shakeyBellComponent.trailingAnchor, constant: -10).isActive = true
+        
+        self.badge.layer.cornerRadius = 10
     }
     
     
